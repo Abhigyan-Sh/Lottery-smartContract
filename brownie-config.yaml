@@ -1,0 +1,53 @@
+dependencies:
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+  - OpenZeppelin/openzeppelin-contracts@3.4.0
+
+compiler:
+  solc:
+    remappings:
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
+      - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@3.4.0'
+
+dotenv: .env
+
+# above 6 
+# its called remappings:
+# dependencies and remappings- '-', no space bw =
+# below 1
+wallets:
+  from_key: ${PRIVATE_KEY}
+
+networks:
+  development:
+    _keyHash:
+    _fee:
+    verify: False
+
+  ganache-local:
+    _keyHash:
+    _fee:
+    verify: False
+
+  rinkeby:
+    ethTo_usd_PriceFeed: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e'
+    _vrfCoordinator: '0x6168499c0cFfCaCD319c818142124B7A15E857ab'
+    _link: '0x01BE23585060835E02B77ef475b0Cc51aA1e0709'
+
+    _keyHash: '0xd89b2bf150e3b9e13446986e571fb9cab24b13cea0a43ea20a6049a85cc807cc'
+    # _fee: 0.25 Link meaning
+    _fee: 250000000000000000
+    verify: True
+    # dont have for kovan
+
+  kovan:
+    ethTo_usd_PriceFeed: '0x9326BFA02ADD2366b30bacB125260Af641031331' 
+    _vrfCoordinator: ''
+    _link: ''
+
+    _keyHash: ''
+    _fee: ''
+    verify: True
+
+  ropsten:
+    ethTo_usd_PriceFeed: 
+    verify: True
